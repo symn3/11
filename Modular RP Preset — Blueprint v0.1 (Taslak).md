@@ -11,7 +11,7 @@ Hazırlayan: Claude · Kaynak: github.com/symn3/11 · Durum: **taslak, onayına 
 | Kaynak katmanlar | FF 5.4 Hapuppy Forced Reasoning, FF 5.4 Internal States, FF 5.2 Internal States (BOLT), Geechan v5.2 modülleri |
 | Kural | Hiçbir domain'i iki modül birden yönetmez (**duplicate yok**) |
 | Stil | FF'nin görsel/etkileşimli zenginliği korunur; Pura ve LFM'de daha iyi yapılandırılmış parçalar serbestçe alınır ve geliştirilir |
-| Dil kuralı | Yönlendirme yapan modüller: **adı + açıklaması + içeriği İngilizce**. Yönlendirme yapmayan modüller (ayraç, README, bilgi notu): **Türkçe başlık** |
+| Dil kuralı | Yönlendirme yapan modüller: **adı + açıklaması Türkçe / içeriği İngilizce**. Yönlendirme yapmayan modüller (ayraç, README, bilgi notu): **Türkçe başlık içerik** |
 
 ## 2. İsimlendirme Standardı
 
