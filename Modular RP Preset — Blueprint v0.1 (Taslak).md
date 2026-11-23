@@ -15,9 +15,9 @@ Hazırlayan: Claude · Kaynak: github.com/symn3/11 · Durum: **taslak, onayına 
 
 ## 2. İsimlendirme Standardı
 
-**Fonksiyonel modül:** `A1 · Core Contract` biçiminde. Harf = grup, rakam = sıra. Açıklaması prompt'un en üstünde `{{// ... }}{{trim}}` yorumu olarak İngilizce yazılır (modele gitmez, sadece yazara/kullanıcıya görünür). Yorum şu alanları taşır: `Purpose`, `Needs`, `Conflicts`, `Cost (tokens)`, `Best for`.
+**Fonksiyonel modül:** `A1 · Core Contract` biçiminde. Harf = grup, rakam = sıra. Açıklaması prompt'un en üstünde `{{// ... }}{{trim}}` yorumu olarak Türkçe yazılır (modele gitmez, sadece yazara/kullanıcıya görünür). Yorum şu alanları taşır: `Purpose`, `Needs`, `Conflicts`, `Cost (tokens)`, `Best for`.
 
-**Etkisiz modül (ayraç/bilgi):** `━━ 📖 BENİ OKU ━━` gibi Türkçe başlık, içerik boş ya da yalnızca `{{// }}` yorum. `enabled: false` kalır.
+**Etkisiz modül (ayraç/bilgi):** `━━ 📖 BENİ OKU ━━` gibi Türkçe başlık, içerik yalnızca `{{// }}` yorum. `enabled: false` kalır.
 
 **Önemli teknik not:** FF Regex Suite panel başlıklarını İngilizce etiketlerle yakalıyor (`INTERNAL STATES`, `QUESTS`, `BONDS` vb.). Bu yüzden **state çıktısındaki etiketler İngilizce kalmalı**. Türkçe yalnızca prompt manager başlıklarında kullanılır, modelin ürettiği panel etiketlerinde kullanılmaz.
 
