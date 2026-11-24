@@ -10,6 +10,19 @@ This update adapts the useful architecture behind Freaky Frankenstein 5.4's main
 
 The design principle is: the shared bootstrap declares an empty set of local variables; each enabled MRP tracker registers only its own output template and, where useful, a short update helper; a late master prompt assembles the registered templates into one state panel; a separate scheduler invokes only helpers that are non-empty.
 
+
+## Follow-up correction — Hex dialogue mode is now wired into the preset
+
+A follow-up inspection found a real integration defect that the first audit missed:
+
+- The `h1b` prompt already existed in `prompts[]` with the FF5 Hex CT contract (`<font color="#HEX">"Dialogue"</font>`), but it was missing from both `prompt_order` profiles. That made it an orphaned prompt rather than a selectable profile module.
+- The regex companion already contained `FF Diyalog · Hex CT (font color)`, but its whitespace tokens were double-escaped. A direct JavaScript RegExp test against `<font color="#56B4E9">"Hello"</font>` failed before the correction.
+- Both profiles now include `h1b` as a selectable entry. Default profile keeps it off. Immersive profile now enables `h1b` and disables named-color `h1`, so the two mutually exclusive modes are not active together.
+- The Hex CT regex was corrected and directly tested against a representative font-color dialogue sample. It now captures the hex color and quoted dialogue for conversion to a colored span.
+- The preset README now explains H1/H1b, their mutual exclusion, and the Immersive default.
+
+This is an actual preset/regex integration correction, not just a documentation note. It does not claim that every macro observed across unrelated source presets belongs in MRP: `{{summary}}` depends on an external summarization workflow, while `{{incvar}}` would require a deliberate counter-based mechanic. Neither should be pasted into MRP merely because another preset uses it.
+
 ## FF5.4 design principle adapted
 
 The pinned FF5.4 source inspected for this work is:
