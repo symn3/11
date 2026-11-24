@@ -1175,7 +1175,12 @@
       "injection_depth": 0,
       "injection_order": 305,
       "forbid_overrides": false,
-      "injection_trigger": [],
+      "injection_trigger": [
+        "normal",
+        "continue",
+        "swipe",
+        "regenerate"
+      ],
       "enabled": false,
       "marker": false
     },
@@ -1189,7 +1194,12 @@
       "injection_depth": 0,
       "injection_order": 310,
       "forbid_overrides": false,
-      "injection_trigger": [],
+      "injection_trigger": [
+        "normal",
+        "continue",
+        "swipe",
+        "regenerate"
+      ],
       "enabled": false,
       "marker": false
     },
@@ -1203,7 +1213,12 @@
       "injection_depth": 0,
       "injection_order": 315,
       "forbid_overrides": false,
-      "injection_trigger": [],
+      "injection_trigger": [
+        "normal",
+        "continue",
+        "swipe",
+        "regenerate"
+      ],
       "enabled": false,
       "marker": false
     },
@@ -1544,7 +1559,12 @@
       "injection_depth": 0,
       "injection_order": 180,
       "forbid_overrides": false,
-      "injection_trigger": [],
+      "injection_trigger": [
+        "normal",
+        "continue",
+        "swipe",
+        "regenerate"
+      ],
       "enabled": false,
       "marker": false
     },
@@ -1558,7 +1578,12 @@
       "injection_depth": 0,
       "injection_order": 190,
       "forbid_overrides": false,
-      "injection_trigger": [],
+      "injection_trigger": [
+        "normal",
+        "continue",
+        "swipe",
+        "regenerate"
+      ],
       "enabled": false,
       "marker": false
     },
