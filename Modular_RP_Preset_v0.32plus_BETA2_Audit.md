@@ -83,10 +83,11 @@ The source scan below is performed over prompt content after removing author-com
 
 ### Main Prompt variable initialisers
 
-`DNDSimDCCoT`, `agendaTrackerCoT`, `bondCoT1`, `bondCoT2`, `bond_LS_US`, `bond_X_Y`, `bondsTemplate`, `chekhovActive`, `chekhovLocked`, `chekhovTemplate`, `chekhovsGunCoT`, `debug_mode`, `dndSimCoT`, `dndSimCoTHQ1`, `dndTemplate`, `gmNotebookCoT`, `gmNotebookCoTGamestate`, `gmNotebookTemplate`, `grudge_X_Y`, `invTemplate`, `npcSeed`, `plotSeed`, `rollD20`, `sparks_X_Y`, `thoughtsTemplate`, `worldsimCoT`, `worldsimTemplate`
+The FF5.4 **Main Prompt** itself initializes 16 template/helper variables:
 
-The source initialises 17 helper/template variables. These are used later by its Internal State, relationship, DnD, agenda, world-sim, Chekhov, reasoning and Debug modules; the initialiser list alone is not a working state system.
+`bondsTemplate`, `invTemplate`, `chekhovTemplate`, `thoughtsTemplate`, `gmNotebookTemplate`, `dndTemplate`, `worldsimTemplate`, `bondCoT1`, `bondCoT2`, `agendaTrackerCoT`, `chekhovsGunCoT`, `gmNotebookCoT`, `dndSimCoT`, `dndSimCoTHQ1`, `DNDSimDCCoT`, `gmNotebookCoTGamestate`.
 
+Across the **entire FF5.4 prompt set**, 27 distinct variable names are assigned with `setvar`, because later modules additionally initialise or update `worldsimCoT`, `bond_LS_US`, `bond_X_Y`, `sparks_X_Y`, `grudge_X_Y`, `chekhovActive`, `chekhovLocked`, `debug_mode`, `npcSeed`, `plotSeed`, and `rollD20`. This distinction matters: not all 27 are initialised in the Main Prompt.
 ### What was skipped, and why
 
 - `setvar`, `getvar`, `addvar`, `incvar`, `roll`, `trim`, `user`, `char`, `maxContext`, and `maxResponse` are supported SillyTavern core macros. The last two also have the documented aliases `maxContextTokens` and `maxResponseTokens`.
@@ -103,10 +104,11 @@ The source initialises 17 helper/template variables. These are used later by its
 | `{{charifnotgroup}}` | 1 |
 | `{{lastmessageid}}` | 1 |
 | `{{random}}` | 21 |
+| `{{roll}}` | 7 |
 | `{{trim}}` | 107 |
 | `{{user}}` | 34 |
 
-The new X Feed adds five native `random` calls. No custom/backend macro was introduced.
+The new X Feed adds five native `random` calls. The current beta has seven `roll` calls written with the legacy single-colon separator; SillyTavern still accepts that legacy form, while double-colon is preferred for new authoring. Existing prompt text was not rewritten. No custom/backend macro was introduced.
 
 ## Activation and test checklist
 
