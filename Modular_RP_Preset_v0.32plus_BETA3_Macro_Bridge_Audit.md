@@ -11,6 +11,22 @@ This update adapts the useful architecture behind Freaky Frankenstein 5.4's main
 The design principle is: the shared bootstrap declares an empty set of local variables; each enabled MRP tracker registers only its own output template and, where useful, a short update helper; a late master prompt assembles the registered templates into one state panel; a separate scheduler invokes only helpers that are non-empty.
 
 
+
+## Follow-up addition — Persistent state revision with `{{incvar}}`
+
+The beta now uses SillyTavern's local increment macro in the active macro master:
+
+- `F0b` increments `mrp32_stateRevision` once when the master state panel is processed:
+  `{{incvar::mrp32_stateRevision}}`
+- The resulting value appears in the state panel summary as `Revision: N` beside SillyTavern's message ID.
+- The counter is a chat-local state-snapshot revision. It is intentionally **not** initialized or reset by A0, so it persists between requests in that chat. SillyTavern documents that an undefined local variable used by `incvar` starts at zero and the increment macro returns the new value.
+- F16 explicitly forbids treating this revision as fictional time or a scene-turn counter. Agenda progression, clue aging and relationship changes remain governed by MRP's event/time rules.
+- The increment is performed once in F0b, not in multiple module prompts, so it does not multiply with the number of active trackers.
+
+Official macro reference: https://docs.sillytavern.app/usage/st-script/ and https://docs.sillytavern.app/usage/core-concepts/macros/.
+
+Static validation confirms one `incvar` occurrence in the preset, the target variable is not reset by A0, and the macro appears in the F0b state summary. Runtime counter persistence still requires a live SillyTavern chat test; this repository audit does not claim that runtime test was performed.
+
 ## Follow-up correction — Hex dialogue mode is now wired into the preset
 
 A follow-up inspection found a real integration defect that the first audit missed:
