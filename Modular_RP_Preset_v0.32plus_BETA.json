@@ -1682,6 +1682,34 @@
       "marker": false
     },
     {
+      "identifier": "019f62e8-892f-701a-afd5-49222c79fdb6",
+      "name": "H11 · 👾 Pop-in Graphics (FF5.4)",
+      "system_prompt": false,
+      "role": "system",
+      "content": "{{// FF5.4 Pop-in Graphics port. Render readable in-world media as actual inline HTML, not a prose description.}}{{trim}}\n\n<gfx_protocol>\nPurpose: render a readable object as an in-world visual when a character receives, notices, views, opens, or reads a terminal, sign, map, letter, note, poster, document, or phone screen.\n\nTrigger only when the scene contains a concrete readable medium. Do not add decorative graphics to ordinary narration.\n\nOutput contract:\n- Emit raw inline HTML only for the visual.\n- Wrap each visual exactly in <!-- GFX_START --> and <!-- GFX_END -->.\n- Never put the visual inside a Markdown code fence.\n- Keep the visual attached to the related prose beat; do not move it to the top or tail of the reply.\n- Do not repeat the full visual contents in surrounding prose. The prose may describe the character's act of viewing it or its immediate consequence.\n- Use compact, readable HTML with inline CSS. Avoid scripts, external assets, or remote dependencies.\n\nVisual treatments:\n- Terminal / digital interface: monospace type, near-black background, vivid green text, thin green border, subtle green glow, readable padding and rounded corners.\n- Letter / sign / map / paper document: warm paper background, dark ink, serif or handwriting-style type, comfortable padding, soft border/shadow, and generous line-height. Keep maps legible with labels and a clear legend.\n- Phone / messaging screen: dark phone-like panel, sans-serif type, rounded corners, thin border and restrained shadow; keep its width readable on desktop and mobile.\n- For a phone screen, include the relevant time, battery percentage, caller or conversation identity, message/chat bubbles, and suitable small emojis when the medium is a messaging interface. Do not invent metadata that the scene has not established; use a neutral placeholder only when the interface itself would display one.\n\nUse the smallest suitable visual that communicates the artifact. Prefer one coherent panel over multiple stacked panels.\n</gfx_protocol>",
+      "injection_position": 0,
+      "injection_depth": 4,
+      "injection_order": 100,
+      "forbid_overrides": false,
+      "injection_trigger": [],
+      "enabled": true,
+      "marker": false
+    },
+    {
+      "identifier": "019f62e8-892f-7028-bad6-be1f427c3ae4",
+      "name": "H12 · 📲 Twitter X Feed (FF5.4)",
+      "system_prompt": false,
+      "role": "system",
+      "content": "{{// FF5.4 Twitter/X Feed port. Optional live-audience reactions after the finished story. Disabled by default because it adds output tokens.}}{{trim}}\n\n<x_feed>\nTrigger: After the main story response. Append the feed after the completed story and never between story paragraphs.\n\nContext: A fictional live audience is watching the current roleplay events in real time. Every reaction must be grounded in the immediate action, spoken line, visible detail, or atmosphere. No unrelated memes, generic filler, or knowledge the audience could not plausibly have.\n\nSelection: Produce exactly five posts. Select one distinct commentator archetype from each of the five disjoint pools below. Because the pools do not overlap, the five selected archetypes are distinct. Re-evaluate the selections on each generation:\n1. {{random::Shipper::Eagle-Eye::Real Talk}}\n2. {{random::Sympathizer::Hype Man::Mood Poster}}\n3. {{random::Devil's Advocate::Vibe Checker::Anticipator}}\n4. {{random::Judge::Questioner::Swooner}}\n5. {{random::Minimalist::Horny One::Voyeur}}\n\nArchetype behavior:\n- Shipper: reads plausible romantic tension and roots for a development without asserting that it happened.\n- Eagle-Eye: notices a precise detail from the current scene.\n- Real Talk: bluntly comments on a choice or mistake visible in the scene.\n- Sympathizer: empathizes with a character's difficulty or acknowledges a success.\n- Hype Man: energetic reaction to a real dramatic or action beat.\n- Mood Poster: relates the moment to a familiar feeling or situation.\n- Devil's Advocate: offers a grounded counter-view of a character's decision.\n- Vibe Checker: comments on the scene's observable tension, mood, or aesthetic.\n- Anticipator: makes a cautious prediction based on current clues, not hidden knowledge.\n- Judge: lightly calls out an awkward or foolish moment without derailing tone.\n- Questioner: asks a concise question about a motive or line that was actually shown.\n- Swooner: reacts to an adult fictional character's established presence or style.\n- Minimalist: one brief word or emoji-led reaction.\n- Horny One: may make a flirtatious, non-graphic remark only about clearly adult fictional characters and consensual adult tension.\n- Voyeur: reacts to visible romantic/intimate tension only when all involved are clearly adult fictional characters and the interaction is consensual; keep it non-graphic.\n\nOutput:\n- Raw inline HTML only, wrapped strictly in <!-- GFX_START --> and <!-- GFX_END -->.\n- Markdown code fences are forbidden.\n- Render exactly five distinct posts in an X / Trending-style card. Each post includes a generated display name, @handle, a plausible timestamp, the selected archetype's distinct voice, and compact reply/repost/like counts.\n- Make the names, handles, reactions, times, and counts varied and plausible; avoid repeating the same handles across turns when history provides examples.\n- Every post must refer to a specific detail of the current scene. Do not disclose private NPC knowledge or invent an actual off-screen audience member as a character in the roleplay.\n\nHTML structure:\n<!-- GFX_START -->\n<div style=\"font-family:sans-serif;background:#000;color:#e7e9ea;border:1px solid #2f3336;border-radius:12px;padding:10px;margin-top:10px;font-size:14px;max-width:500px;\">\n  <div style=\"border-bottom:1px solid #2f3336;padding-bottom:8px;margin-bottom:4px;font-weight:bold;color:#71767b;\">X / Trending</div>\n  <!-- Render five post rows here, each with a circular avatar placeholder, name, @handle · time, reaction text, and 💬 replies / ↻ reposts / ♥ likes -->\n</div>\n<!-- GFX_END -->\n</x_feed>",
+      "injection_position": 0,
+      "injection_depth": 4,
+      "injection_order": 100,
+      "forbid_overrides": false,
+      "injection_trigger": [],
+      "enabled": false,
+      "marker": false
+    },
+    {
       "identifier": "worldInfoBefore",
       "name": "Dünya Bilgisi (önce)",
       "system_prompt": true,
@@ -2184,6 +2212,14 @@
           "enabled": false
         },
         {
+          "identifier": "019f62e8-892f-701a-afd5-49222c79fdb6",
+          "enabled": true
+        },
+        {
+          "identifier": "019f62e8-892f-7028-bad6-be1f427c3ae4",
+          "enabled": false
+        },
+        {
           "identifier": "sep-i",
           "enabled": false
         },
@@ -2634,6 +2670,14 @@
         },
         {
           "identifier": "h10-scene-time",
+          "enabled": false
+        },
+        {
+          "identifier": "019f62e8-892f-701a-afd5-49222c79fdb6",
+          "enabled": true
+        },
+        {
+          "identifier": "019f62e8-892f-7028-bad6-be1f427c3ae4",
           "enabled": false
         },
         {
