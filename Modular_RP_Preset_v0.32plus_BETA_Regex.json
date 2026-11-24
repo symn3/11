@@ -342,7 +342,7 @@
   {
     "id": "6eb98ecb-80df-4327-be38-aa9ce7fd7ea2",
     "scriptName": "FF Diyalog · Hex CT (font color)",
-    "findRegex": "/<\\\\s{0,8}font\\\\s{1,12}color\\\\s{0,8}=\\\\s{0,8}[\"\\']?(#[0-9A-Fa-f]{3,8})[\"\\']?\\\\s{0,8}>([“\"][^”\"]{1,2000}?[”\"])(?:\\\\s{0,8}<\\\\s{0,8}\\\\/\\\\s{0,8}font\\\\s{0,8}>)?/gi",
+    "findRegex": "/<\\s{0,8}font\\s{1,12}color\\s{0,8}=\\s{0,8}[\"']?(#[0-9A-Fa-f]{3,8})[\"']?\\s{0,8}>([“\"][^”\"]{1,2000}?[”\"])(?:\\s{0,8}<\\s{0,8}\\/\\s{0,8}font\\s{0,8}>)?/gi",
     "replaceString": "<span style=\"color:$1;\">$2</span>",
     "trimStrings": [],
     "placement": [
