@@ -40,7 +40,7 @@ Extracted from the pinned FF5.4 preset object embedded in `ddkhan24/hordestudio/
 - Appends a five-post fictional live-audience feed after the finished story.
 - Posts must react to specific current-scene details; no off-topic memes or impossible audience knowledge.
 - Five persona archetypes are selected using five SillyTavern `{{random::...}}` macros over five **disjoint pools**, guaranteeing the five archetypes are distinct.
-- Renders one X / Trending-style raw HTML card wrapped in GFX_START/END. Markdown code fences are forbidden.
+- Renders one X / Trending-style raw HTML card wrapped in GFX_START/END. The 500px maximum width, 13px card text, 36px avatar placeholders and engagement row structure are retained. Markdown code fences are forbidden.
 - Flirtatious archetypes are restricted to non-graphic comments about clearly adult fictional characters and consensual adult tension.
 - Existing H4 is untouched. **Do not enable H4 and H12 together**: H4 provides a compact in-world social feed; H12 provides an external live-audience reaction feed.
 
